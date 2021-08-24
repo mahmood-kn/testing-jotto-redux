@@ -6,6 +6,7 @@ export const findByTestAttr = (wrapper, val) => {
 
 export const checkProps = (component, confirmingProps) => {
   const propError = checkPropsTypes(
+    // eslint-disable-next-line react/forbid-foreign-prop-types
     component.propTypes,
     confirmingProps,
     'prop',
