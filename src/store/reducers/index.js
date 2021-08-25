@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import success from './successReducers';
-import guessedWord from './guessedWordReducer';
+import guessedWords from './guessedWordsReducer';
+import secretWord from './secretWordReducer';
 
 const reducer = combineReducers({
   success,
-  guessedWord,
+  guessedWords,
+  secretWord,
 });
 
 export default reducer;
