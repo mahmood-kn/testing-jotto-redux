@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { guessWord } from './store/actions';
 
 export class Input extends Component {
   render() {
@@ -28,6 +29,8 @@ export class Input extends Component {
 
 const mapStateToProps = ({ success }) => ({ success });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  guessWord: dispatch(guessWord),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input);
