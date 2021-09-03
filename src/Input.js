@@ -15,6 +15,7 @@ export class UnConnectedInput extends Component {
     const guessWord = this.state.currentGuess;
     if (guessWord && guessWord.length > 0) {
       this.props.guessWord(guessWord);
+      this.setState({ currentGuess: '' });
     }
   }
   render() {
