@@ -14,6 +14,7 @@ export class UnConnectedApp extends Component {
     return (
       <div className='container'>
         <h1>Jotto</h1>
+        <div>The secret word is {this.props.secretWord}</div>
         <Congrats success={this.props.success} />
         <Input />
         <GuessedWords guessedWords={this.props.guessedWords} />
@@ -27,6 +28,6 @@ const mapStateToProps = (state) => ({
   secretWord: state.secretWord,
 });
 const mapDispatchToProps = (dispatch) => ({
-  getSecretWord: dispatch(getSecretWord),
+  getSecretWord: () => dispatch(getSecretWord()),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(UnConnectedApp);

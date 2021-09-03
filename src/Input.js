@@ -48,7 +48,7 @@ export class UnConnectedInput extends Component {
 const mapStateToProps = ({ success }) => ({ success });
 
 const mapDispatchToProps = (dispatch) => ({
-  guessWord: dispatch(guessWord),
+  guessWord: (word) => dispatch(guessWord(word)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UnConnectedInput);
