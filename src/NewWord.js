@@ -1,9 +1,9 @@
 import React from 'react';
 
-const NewWord = ({ success, reset }) => {
+const NewWord = ({ success, reset, giveUp }) => {
   return (
     <>
-      {success && (
+      {(success || giveUp) && (
         <button
           onClick={reset}
           className='btn btn-primary my-2'

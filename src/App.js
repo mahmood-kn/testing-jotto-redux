@@ -7,6 +7,7 @@ import { getSecretWord, reset } from './store/actions';
 import Input from './Input';
 import GuessedWordsCount from './GuessedWordsCount';
 import NewWord from './NewWord';
+import SecretWordReveal from './SecretWordReveal';
 
 export class UnConnectedApp extends Component {
   componentDidMount() {
@@ -18,7 +19,12 @@ export class UnConnectedApp extends Component {
         <h1>Jotto</h1>
         <div>The secret word is {this.props.secretWord}</div>
         <Congrats success={this.props.success} />
+        <SecretWordReveal
+          giveUp={this.props.giveUp}
+          secretWord={this.props.secretWord}
+        />
         <NewWord
+          giveUp={this.props.giveUp}
           success={this.props.success}
           reset={() => this.props.reset()}
         />
@@ -33,6 +39,7 @@ const mapStateToProps = (state) => ({
   success: state.success,
   guessedWords: state.guessedWords,
   secretWord: state.secretWord,
+  giveUp: state.giveUp,
 });
 const mapDispatchToProps = (dispatch) => ({
   getSecretWord: () => dispatch(getSecretWord()),

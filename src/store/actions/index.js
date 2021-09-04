@@ -6,6 +6,7 @@ export const actionTypes = {
   GUESS_WORD: 'GUESS_WORD',
   SET_SECRET_WORD: 'SET_SECRET_WORD',
   RESET: 'RESET',
+  GIVE_UP: 'GIVE_UP',
 };
 
 export const guessWord = (guess) => (dispatch, getState) => {
@@ -39,4 +40,7 @@ export const reset = () => {
       dispatch({ type: actionTypes.RESET, payload: res.data });
     });
   };
+};
+export const giveUp = () => {
+  return { type: actionTypes.GIVE_UP };
 };

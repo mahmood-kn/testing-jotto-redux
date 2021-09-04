@@ -1,6 +1,6 @@
 import NewWord from './NewWord';
 import { shallow } from 'enzyme';
-import { findByTestAttr, storeFactory } from './test/testUtils';
+import { findByTestAttr } from './test/testUtils';
 
 const defaultProps = { success: true };
 const setup = (props = {}) => {

@@ -6,7 +6,7 @@ describe('guessWord action dispatcher', () => {
   const unsuccessfulGuess = 'train';
   describe('no guessed words', () => {
     let store;
-    const initialState = { secretWord };
+    const initialState = { secretWord, giveUp: false };
     beforeEach(() => {
       store = storeFactory(initialState);
     });
@@ -46,6 +46,7 @@ describe('guessWord action dispatcher', () => {
       const expectedState = {
         success: false,
         secretWord,
+        giveUp: false,
         guessedWords: [
           ...guessedWords,
           {
@@ -62,6 +63,7 @@ describe('guessWord action dispatcher', () => {
       const expectedState = {
         secretWord,
         success: true,
+        giveUp: false,
         guessedWords: [
           ...guessedWords,
           {

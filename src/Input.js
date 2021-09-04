@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { guessWord } from './store/actions';
+import { guessWord, giveUp } from './store/actions';
+import GiveUp from './GiveUp';
 
 export class UnConnectedInput extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export class UnConnectedInput extends Component {
   render() {
     return (
       <div data-test='component-input'>
-        {this.props.success ? null : (
+        {this.props.success || this.props.giveUp ? null : (
           <form className='form-inline'>
             <input
               value={this.state.currentGuess}
@@ -38,6 +39,10 @@ export class UnConnectedInput extends Component {
               onClick={(e) => this.submitGuessWord(e)}>
               Submit
             </button>
+            <GiveUp
+              giveUpAction={this.props.giveUpAction}
+              giveUp={this.props.giveUp}
+            />
           </form>
         )}
       </div>
@@ -45,10 +50,11 @@ export class UnConnectedInput extends Component {
   }
 }
 
-const mapStateToProps = ({ success }) => ({ success });
+const mapStateToProps = ({ success, giveUp }) => ({ success, giveUp });
 
 const mapDispatchToProps = (dispatch) => ({
   guessWord: (word) => dispatch(guessWord(word)),
+  giveUpAction: () => dispatch(giveUp()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UnConnectedInput);
