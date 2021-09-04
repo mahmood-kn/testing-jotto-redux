@@ -5,6 +5,7 @@ export const actionTypes = {
   CORRECT_GUESS: 'CORRECT_GUESS',
   GUESS_WORD: 'GUESS_WORD',
   SET_SECRET_WORD: 'SET_SECRET_WORD',
+  RESET: 'RESET',
 };
 
 export const guessWord = (guess) => (dispatch, getState) => {
@@ -28,6 +29,14 @@ export const getSecretWord = () => {
   return (dispatch) => {
     axios.get('http://localhost:3030').then((res) => {
       dispatch({ type: actionTypes.SET_SECRET_WORD, payload: res.data });
+    });
+  };
+};
+
+export const reset = () => {
+  return (dispatch) => {
+    axios.get('http://localhost:3030').then((res) => {
+      dispatch({ type: actionTypes.RESET, payload: res.data });
     });
   };
 };

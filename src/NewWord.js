@@ -1,10 +1,13 @@
 import React from 'react';
 
-const NewWord = ({ success }) => {
+const NewWord = ({ success, reset }) => {
   return (
     <>
       {success && (
-        <button className='btn btn-primary my-2' data-test='new-word-btn'>
+        <button
+          onClick={reset}
+          className='btn btn-primary my-2'
+          data-test='new-word-btn'>
           New Word
         </button>
       )}
