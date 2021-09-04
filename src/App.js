@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { getSecretWord } from './store/actions';
 import Input from './Input';
 import GuessedWordsCount from './GuessedWordsCount';
+import NewWord from './NewWord';
 
 export class UnConnectedApp extends Component {
   componentDidMount() {
@@ -20,6 +21,7 @@ export class UnConnectedApp extends Component {
         <Input />
         <GuessedWords guessedWords={this.props.guessedWords} />
         <GuessedWordsCount />
+        <NewWord success={this.props.success} />
       </div>
     );
   }
