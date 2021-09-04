@@ -4,7 +4,7 @@ const NewWord = ({ success }) => {
   return (
     <>
       {success && (
-        <button className='btn btn-primary' data-test='new-word-btn'>
+        <button className='btn btn-primary my-2' data-test='new-word-btn'>
           New Word
         </button>
       )}

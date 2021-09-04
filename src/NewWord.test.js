@@ -9,7 +9,7 @@ const setup = (props = {}) => {
 
 describe('NewWord', () => {
   test('render on success true', () => {
-    const success = false;
+    const success = true;
     const wrapper = setup({ success });
     const newWordBtn = findByTestAttr(wrapper, 'new-word-btn');
     expect(newWordBtn.length).toBe(1);
